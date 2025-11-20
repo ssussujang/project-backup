@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>관리자 페이지</title>
+</head>
+<body>
+	<table border="1" width="600" height="400">
+		<tr>
+			<th>아이디(이름)</th>
+			<th>비밀번호</th>
+			<th>나이</th>
+			<th>이메일</th>
+			<th>성별</th>
+			<th>등급</th>
+			<th>수정,삭제</th>
+		</tr>
+		<tr th:each="userdto : ${members}">
+			 <form th:action="@{/admin/updateMemberInfo}" th:object="${userdto}" method="post" sec:authorize="hasRole('ADMIN')">
+					<td>
+						<input type="text" name="t_name" th:value="${userdto.t_name}">
+					</td>
+					<td>
+						<input type="text" name="t_pw" th:value="${userdto.t_pw}">
+					</td>
+					<td>
+						<input type="number" name="t_age" th:value="${userdto.t_age}">
+					</td>
+					<td>
+						<input type="text" name="t_email" th:value="${userdto.t_email}">		
+					</td>
+					<td>
+						<input type="text" name="t_gender" th:value="${userdto.t_gender}">			
+					</td>
+					<td>
+						<input type="text" name="t_role" th:value="${userdto.role}">
+					</td>
+					<td style="width: 100px">
+						<button type="submit" name="action" value="update">수정</button>
+						<button type="submit" name="action" value="delete">삭제</button>
+					</td>
+			</form>
+		</tr>
+	
+	</table>
+</body>
+</html>

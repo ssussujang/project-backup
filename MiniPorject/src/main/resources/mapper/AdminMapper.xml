@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coke.sample.mapper.AdminMapper">
+	<select id="showmember" resultMap="adminMap">
+		select * from springmini.test_user
+	</select>
+	
+	<resultMap type="com.coke.sample.dto.UserDTO" id="adminMap">
+		<id column="t_name" property="t_name"/>
+		<result column="t_pw" property="t_pw"/>
+		<result column="t_age" property="t_age"/>
+		<result column="t_email" property="t_email"/>
+		<result column="t_gender" property="t_gender"/>
+		<result column="role" property="role"/>
+	</resultMap>
+	
+	<update id="updateMemberInfo" parameterType="com.coke.sample.dto.UserDTO">
+		update springmini.test_user set t_email = #{t_email}, t_gender = #{t_gender}, t_pw = #{t_pw}
+			where t_name = #{t_name}
+	</update>
+	
+	<delete id="deleteMemberInfo" parameterType="com.coke.sample.dto.UserDTO">
+		delete from springmini.test_user where t_name = #{t_name} and role = 'ROLE_USER'
+	</delete>
+	
+</mapper>

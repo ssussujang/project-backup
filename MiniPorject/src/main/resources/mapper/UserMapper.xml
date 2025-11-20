@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coke.sample.mapper.UserMapper">
+	<insert id="register" parameterType="com.coke.sample.dto.UserDTO">
+		insert into springmini.test_user values(#{t_name}, #{t_age}, #{t_gender}, #{t_email}, #{t_pw}, #{role})
+	</insert>
+	
+	<resultMap type="com.coke.sample.dto.UserDTO" id="UserMap">
+		<id property="t_name" column = "t_name"/>
+		<result property="t_pw" column = "t_pw"/>
+		<result property="role" column = "role"/>
+	</resultMap>
+	
+	<select id="findUser" resultMap="UserMap">
+		select t_name, t_pw, role from springmini.test_user where t_name = #{t_name}
+	</select>
+	
+	
+	<select id="findAllUser" parameterType="string" resultType="com.coke.sample.dto.UserDTO">
+		select * from springmini.test_user where t_name = #{_parameter}
+	</select>
+	
+	
+	<update id="updatemember" parameterType="com.coke.sample.dto.UserDTO">
+		update springmini.test_user set t_email = #{t_email}, t_gender = #{t_gender}
+			where t_name = #{t_name}
+	</update>
+	
+	<delete id="deletemember" parameterType="com.coke.sample.dto.UserDTO">
+		delete from springmini.test_user where t_name = #{t_name}
+	</delete>
+	
+</mapper>

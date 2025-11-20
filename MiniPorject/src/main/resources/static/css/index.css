@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+body {
+	background-image: url("/img/castle.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#login {
+	text-align: center;
+}
+
+#reg {
+	text-align: center;
+}
+

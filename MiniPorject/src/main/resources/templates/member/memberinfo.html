@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="memberinfoUpdate" method="post">
+	<div sec:authorize="isAuthenticated()">
+		이름:<input type="text" name="t_name" th:value="${#authentication.principal.userdto.t_name}" readonly="readonly"><p>
+	</div>
+	<div sec:authorize="isAuthenticated()">
+		이메일:<input type="text" name="t_email" th:value="${#authentication.principal.userdto.t_email}" ><p>
+	</div>
+	<div sec:authorize="isAuthenticated()">
+		성별:
+		<input type="radio" name="t_gender" value="남자" th:checked="${#authentication.principal.userdto.t_gender.name() == '남자'}"> 남자
+		<input type="radio" name="t_gender" value="여자" th:checked="${#authentication.principal.userdto.t_gender.name() == '여자'}"> 여자
+	</div>
+	<div>
+		<button type="submit">회원정보 수정</button>
+	</div>
+</form>
+<form action="memberinfodelete" method="post">
+	<div>
+		<button type="submit">회원 탈퇴</button>
+	</div>
+</form>
+</body>
+</html>

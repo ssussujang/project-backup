@@ -24,7 +24,7 @@ public class AdminController {
 	public String showmemeber(Model model) {
 		List<UserDTO> members = asl.showmember();
 		model.addAttribute("members",members);
-		return "admin/memberinfo";
+		return "박지혜";
 	}
 	
 	@PostMapping("/updateMemberInfo")

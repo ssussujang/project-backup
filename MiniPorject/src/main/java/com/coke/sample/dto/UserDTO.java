@@ -19,7 +19,7 @@ public class UserDTO {
 	private Role role;
 	
 	public enum Gender {
-		남자,여자
+		남,여
 	}
 	
 	

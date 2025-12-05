@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<link rel="stylesheet" th:href="@{/css/login.css}">
+<title>login</title>
+</head>
+<body class="page-wrapper login-page">
+
+	<div th:replace="fragments/header ::header"></div>
+	
+	<main class="page-content">
+		<div class="login-card">
+			
+			<h2 class="login-title">로그인</h2>
+
+			<form action="/login" method="post" class="login-form">
+				<div class="form-row">
+					<label for="member_id">아이디</label>
+					<input id="member_id" type="text" name="member_id">
+				</div>
+				
+				<div class="form-row">
+					<label for="member_pw">비밀번호</label>
+					<input id="member_pw" type="password" name="member_pw">
+				</div>
+
+				<button type="submit" class="btn-primary">로그인</button>
+			</form>
+
+			<div class="login-bottom">
+				<form action="/signup" method="get" class="signup-inline">
+					<span>계정이 없으신가요?</span>
+					<button type="submit" class="btn-text">회원가입하기</button>
+				</form>
+
+				<div class="social-login">
+					<button type="button" class="btn-kakao">카카오 로그인</button>
+				</div>
+
+				<a th:href="@{/}" class="link-main">메인으로 돌아가기</a>
+			</div>
+		</div>
+	</main>
+	
+	<div th:replace="fragments/footer ::footer"></div>	
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/index.css}">	
+<link rel="stylesheet" th:href="@{/css/signup.css}">
+<title>회원가입</title>
+</head>
+<body class="page-wrapper signup-page">
+
+	<div th:replace="fragments/header ::header"></div>
+	
+	<main class="page-content">
+	
+	    <div class="signup-card">
+	
+	        <div class="kakao_login">
+	            <a class="btnKakao"
+	               href="/oauth2/authorization/kakao">카카오 로그인</a>
+	        </div>
+	
+	        <form th:action="@{/signup}" method="post">
+	            <div>
+	                <label for="member_id">아이디</label>
+	                <input id="member_id" type="text" name="member_id">
+	            </div>
+	            <div>
+	                <label for="member_pw">비밀번호</label>
+	                <input id="member_pw" type="password" name="member_pw">
+	            </div>
+	            <div>
+	                <label for="member_pw_confirm">비밀번호 확인</label>
+	                <input id="member_pw_confirm" type="password" name="member_pw_confirm">
+	            </div>
+	            <div>
+	                <label for="member_name">이름</label>
+	                <input id="member_name" type="text" name="member_name">
+	            </div>
+	            <div>
+	                <label for="member_birth">생년월일</label>
+	                <input id="member_birth" type="text" name="member_birth">
+	            </div>
+	            <div>
+	                <label for="member_phone">휴대전화</label>
+	                <input id="member_phone" type="text" name="member_phone">
+	            </div>
+	            <div>
+	                <label for="member_email">이메일</label>
+	                <input id="member_email" type="text" name="member_email">
+	            </div>
+	            <div>
+	                <label for="member_gender">성별</label>
+	                <input id="member_gender" type="text" name="member_gender">
+	            </div>
+	            <button type="submit">회원가입</button>		
+	        </form>
+	        
+	    </div> 
+	
+	</main>
+
+	<div th:replace="fragments/footer ::footer"></div>
+
+</body>
+</html>

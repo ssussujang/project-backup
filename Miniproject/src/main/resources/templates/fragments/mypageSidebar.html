@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<aside th:fragment="mypageSidebar" class="mypageSidebar">
+		<nav>
+			<h3 class="sidebarTitle">나의 정보</h3>
+			<ul class="sidebarList">
+				<li><a th:href="@{/}">회원 정보 수정</a></li>
+				<li><a th:href="@{/}">알림/이메일 수신 설정(삭제해도 무방)</a></li>
+				<li>
+					<form th:action="@{/logout}" method="post">
+						<button type="submit" class="logoutBtn">로그아웃</button>
+					</form>
+				</li>
+			</ul>
+			<h3 class="sideberTitle">소비 리포트</h3>
+			<ul class="sidebarList">
+				<li><a th:href="@{/}">영수증 업로드 내역</a></li>
+				<li><a th:href="@{/}">월별 소비 패턴 리포트</a></li>
+				<li><a th:href="@{/}">소비 카테고리 관리</a></li>
+			</ul>
+		</nav>
+	</aside>
+</body>
+</html>

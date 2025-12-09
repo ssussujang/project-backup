@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:fragment="header" class="header">
+		<div class="logo">
+			<a th:href="@{/}">Routeceipt</a>
+		</div>
+		<nav class="navbar">
+			<a th:href="@{/}">영수증 업로드</a>
+			<a th:href="@{/calender}">소비 분석</a>
+			<a th:href="@{/info}">공지사항</a>
+			<a class="btn" th:href="@{/login}">로그인</a>
+			<a class="btn" th:href="@{/signup}">회원가입</a>
+		</nav>
+	</header>
+</body>
+</html>
